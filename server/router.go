@@ -17,9 +17,9 @@ func NewRouter() *gin.Engine {
 	v1 := r.Group("/v1")
 	{
 		{
-			v1.GET("Ping", api.Ping)
-			v1.POST("UploadFile", api.UploadFile)
-			v1.POST("DeleteFile", api.DeleteFile)
+			//v1.GET("Ping", api.Ping)
+			//v1.POST("UploadFile", api.UploadFile)
+			//v1.POST("DeleteFile", api.DeleteFile)
 		}
 		{
 			c := v1.Group("/client") // 前端接口分组
@@ -42,46 +42,7 @@ func NewRouter() *gin.Engine {
 
 				s.Use(middleware.AdminTokenAuth())
 				{ // Token必须是数据库已有用户，并且是管理员
-					// 店铺模块
-					s.POST("CreateShop", admin.CreateShop)
-					// 查询预约记录
-					s.POST("GetReserve", admin.GetReserve)
-					//获取所有服务项目
-					s.GET("GetAllServiceProduct", admin.GetAllServiceProduct)
-					// 获取所有服务项目的子项目
-					s.GET("GetAllServiceItemInfo", admin.GetAllServiceItemInfo)
-					// 添加服务类别
-					s.POST("AddServiceProduct", admin.AddServiceProduct)
-					// 添加服务类别的子项目
-					s.POST("AddServiceItem", admin.AddServiceItem)
-					// 删除服务类别的子项目
-					s.POST("DeleteServiceItem", admin.DeleteServiceItem)
 
-					// 接受预约订单
-					s.POST("AcceptReserve", admin.AcceptReserve)
-					// 取消预约订单
-					s.GET("CancelReserve", admin.CancelReserve)
-					// 修改预约订单信息
-					s.POST("UpdateReserve", admin.UpdateReserve)
-					// 服务预约订单
-					s.POST("ActionReserve", admin.ActionReserve)
-					// 结束预约订单
-					s.GET("EndReserve", admin.EndReserve)
-
-					// 品牌
-					s.GET("GetAllBrand", admin.GetAllBrand)
-
-					// 商品模块
-					// 新增产品
-					s.POST("AddProduct", admin.AddProduct)
-					// 获取所有产品
-					s.POST("GetAllProduct", admin.GetAllProduct)
-					// 上架产品
-					s.POST("SetProductOn", admin.ProductOn)
-					// 下架产品
-					s.POST("SetProductOff", admin.ProductOff)
-					// 删除产品
-					s.POST("DeleteProduct", admin.DeleteProduct)
 				}
 			}
 		}

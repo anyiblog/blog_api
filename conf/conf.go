@@ -19,5 +19,4 @@ func Init() {
 		os.Getenv("MYSQL_TIMEOUT"),
 	)
 	Database(MysqlDsn)
-	RedisConnection(0)
 }
